@@ -13,15 +13,16 @@ int isOppositeSign(int* arr, int size) {
         return 0;
     }
 
-    
+    return isOppositeSign(arr, size - 1);
+
 }
 
 
 
 int main() {
-    int array[SIZE] = {-1, 2, 3, 5, 4};
+    int array[SIZE] = {-1, 2, 3, 5, -4};
     int isOpposite = isOppositeSign(array, SIZE);
-    printf("%d ", isOpposite);
+    printf("%d\n", isOpposite);
 
     return 0;
 }
