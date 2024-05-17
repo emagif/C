@@ -5,17 +5,15 @@
 #define SIZE 5
 
 int isOppositeSign(int* arr, int size) {
-    if(arr[0] < 0 && (*(arr + 1)) < 0) {
-        return 0;
-    }
-
-    if(size <= 1) {
+    if(size == 1) {
         return 1;
     }
 
-    else {
-        return isOppositeSign(arr+1, size - 1);
+    if(arr[size - 1] * arr[size - 2] >= 0) {
+        return 0;
     }
+
+    
 }
 
 
