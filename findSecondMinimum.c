@@ -31,7 +31,7 @@ void printArray(int* arr, int size) {
 
 
 int main() {
-    int smallest[SIZE] = {3, 1, 2, 6, 4};
+    int smallest[SIZE] = {3, 1, 8, 6, 4};
     int value = returnSecondSmallest(smallest, SIZE);
     printArray(smallest, SIZE);
     printf("Second smallest value: %d\n", value);
