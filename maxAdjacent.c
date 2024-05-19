@@ -5,18 +5,22 @@
 
 
 int maxAdjacent(int* arr, int size) {
-    int max = 0; 
+    int currentSum;
+    int maxSumSoFar; 
 
-    if(size == 1) {
-        return arr[0];
+    if(size == 2) {
+        return arr[0] + arr[1];
+    }
+    currentSum = arr[0] + arr[1];
+    maxSumSoFar = maxAdjacent(arr + 1, size - 1);
+
+    if(maxSumSoFar > currentSum) {
+        return maxSumSoFar;
     }
 
-    if((arr[size - 1] + arr[size - 2]) > max) {
-        max = arr[size - 1] + arr[size - 2];
-        return max;
+    else {
+        return currentSum;
     }
-
-    return maxAdjacent(arr, size - 1);
 }
 
 
