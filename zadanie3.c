@@ -77,6 +77,7 @@ void hourglass(void) {
 	max7219_write(8, 0xFF);
 }
 
+// Kolejne funkcje odpowiedzialne za wyświetlanie liter na matrycy (litery odpowiednio oznaczone w funkcjach)
 void litera_E(void) {
 	max7219_write(1, 0x00);
 	max7219_write(2, 0x00);
@@ -166,6 +167,8 @@ void max7219_init() {
 	 spi_write(0xA01);
 }
 
+
+// Funkcja zapalająca wszystkie LEDy
 void ledOn(void) {
 	HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
@@ -177,7 +180,7 @@ void ledOn(void) {
 	HAL_GPIO_WritePin(LD8_GPIO_Port, LD8_Pin, GPIO_PIN_SET);
 }
 
-
+// Funkcja gasząca wszystkie LEDy
 void ledOff(void) {
 	HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
@@ -230,9 +233,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   max7219_init();
-  litera_I();
   while (1)
   {
+    // Sekwencja wyświetlająca "płynące" LEDy, 3 pierwsze litery imienia oraz 3 pierwsze litery nazwiska
 	  litera_E();
 	  HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_SET);
 	  HAL_Delay(300);

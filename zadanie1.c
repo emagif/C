@@ -66,6 +66,7 @@ void max7219_write(uint8_t addr, uint8_t data) {
 	spi_write(data | addr<<8);
 }
 
+// Funkcja wyświetlająca klepsydrę
 void hourglass(void) {
 	max7219_write(1, 0xFF);
 	max7219_write(2, 0x7E);
@@ -77,6 +78,14 @@ void hourglass(void) {
 	max7219_write(8, 0xFF);
 }
 
+// Funkcja inicjalizująca wyświetlacz
+void max7219_init() {
+  spi_write(0xB07);
+  spi_write(0x900);
+  spi_write(0xC01);
+  spi_write(0xF00);
+  spi_write(0xA01);
+}
 /* USER CODE END 0 */
 
 /**
@@ -115,11 +124,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  spi_write(0xB07);
-  spi_write(0x900);
-  spi_write(0xC01);
-  spi_write(0xF00);
-  spi_write(0xA01);
+  
+// Wyświetlanie klepsydry na matrycy
+  max7219_init();
   hourglass();
   while (1)
   {

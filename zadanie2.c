@@ -77,6 +77,7 @@ void hourglass(void) {
 	max7219_write(8, 0xFF);
 }
 
+// Funkcja wyświetlająca literę imienia
 void litera_imienia(void) {
 	max7219_write(1, 0x00);
 	max7219_write(2, 0x00);
@@ -88,6 +89,7 @@ void litera_imienia(void) {
 	max7219_write(8, 0x00);
 }
 
+// Funkcja wyświetlająca literę nazwiska
 void litera_nazwiska(void) {
 	max7219_write(1, 0x00);
 	max7219_write(2, 0x00);
@@ -99,6 +101,7 @@ void litera_nazwiska(void) {
 	max7219_write(8, 0x00);
 }
 
+// Funkcja "czyszcząca" matrycę
 void czyszczenie(void) {
 	max7219_write(1, 0x00);
 	max7219_write(2, 0x00);
@@ -160,7 +163,7 @@ int main(void)
 
   while (1)
   {
-
+    // Wywoływanie na przemian funkcji, aby wyświetlały co 300ms na zmianę E oraz G
 	  litera_imienia();
 	  HAL_Delay(300);
 	  czyszczenie();
