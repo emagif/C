@@ -40,12 +40,30 @@ int* generateArray(int size) {
 }
 
 
-int main() {
-    int array1[SIZE] = {1, 2, 3, 4, 5};
-    int array2[SIZE] = {6, 7, 8, 9, 0};
+void swapArray(int** ptr1, int** ptr2) {
+    int* temp;
+    temp = *ptr1;
+    *ptr1 = *ptr2;
+    *ptr2 = temp;
+}
 
-    swapArray(array1, array2, SIZE);
-    printArray(array1, SIZE);
+
+int main() {
+    int* arr1, *arr2;
+    int sizeArray1, sizeArray2; 
+
+    printf("Eneter size for array1: ");
+    scanf("%d", &sizeArray1);
+    arr1 = generateArray(sizeArray1);
+    printf("Eneter size for array1: ");
+    scanf("%d", &sizeArray2);
+
+    arr2 = generateArray(sizeArray2);
+
+    printArray(arr1, sizeArray1);
+
+
+    
 
 
     return 0;
