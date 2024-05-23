@@ -6,7 +6,7 @@
 void printArray(int* arr, int size) {
     int i; 
     for(i = 0; i < size; i++) {
-        printf("%d", arr[i]);
+        printf("grades[%d] = %d\n", i, arr[i]);
     }
     printf("\n");
 }
@@ -26,3 +26,6 @@ int main() {
 
     return 0;
 }
+
+// have to initialize the array, now it is empty
+
