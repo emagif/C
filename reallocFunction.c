@@ -3,6 +3,20 @@
 #include <malloc.h>
 
 
+
+int* reallocate(int* oldArray, int oldSize, int newSize) {
+    int i; 
+    int* newArr; 
+    newArr = (int*)malloc(sizeof(int) * newSize);
+    for(i = 0; i < oldSize; i++) {
+        newArr[i] = oldArray[i];
+    }
+    free(oldArray);
+    return newArr;
+}
+
+
+
 int main() {
 
     int* gradesArray;
