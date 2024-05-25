@@ -28,12 +28,16 @@ int* createAndFillArray(unsigned size) {
     return createdArray;
 }
 
-void printArray(int* printedArray, unsigned size) {
+int printArray(int* printedArray, unsigned size) {
     int i; 
     printf("Printed array: \n");
     for(i = 0; i < size; i++) {
+        if(printedArray[i] == -1) {
+            return -1;
+        }
         printf(" %d ", printedArray[i]);
     }
+    printf("\n");
 }
 
 
