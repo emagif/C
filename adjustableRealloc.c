@@ -11,6 +11,7 @@ int* adjustableReallocation() {
     int* temp = NULL;
 
     printf("Enter num: ");
+    scanf("%d", &num);
 }
 
 
