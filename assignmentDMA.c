@@ -14,8 +14,7 @@ int* createArray(int size) {
 void initArray(int* array, int size) {
     int i; 
     for(i = 0; i < size; i++) {
-        printf("Enter value: ");
-        scanf("%d", &array[i]);
+        array[i] = i;
     }
 }
 
@@ -28,18 +27,18 @@ void displayArray(int* array, int size) {
 
 int doubleArraySize(int** ptr, int size) {
     int i;
-    *ptr = realloc(*ptr, 2 * size * sizeof(int));
-    if(*ptr!=NULL) {
-        for(i = size; i < 2 * size; i++) {
-            (*ptr)[i] = 0;
-        }
-        return 0;
-    }
-
-    if (*ptr==NULL)
-    {
+    int* temp = realloc(*ptr, 2 * size * sizeof(int));
+    if(temp == NULL) {
         return -1;
     }
+
+    *ptr = temp;
+
+    for(int i = size; i < 2 * size; i++) {
+        (*ptr)[i] = 0;
+    }
+
+    return 2 * size;
 }
 
 void freeMemory(int* ptr) {
@@ -57,7 +56,9 @@ int main() {
     printf("\n");
 
     int val = doubleArraySize(&ptr, SIZE);
-
+    if(val == 0) {
+        
+    }
     initArray(ptr, SIZE);
     displayArray(ptr, SIZE);
     freeMemory(ptr);
