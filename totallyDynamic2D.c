@@ -3,12 +3,6 @@
 #include <malloc.h>
 
 
-
-
-
-
-
-
 int main() {
     int** a;
     int rows, columns;
@@ -17,7 +11,7 @@ int main() {
     scanf("%d", &rows);
 
     a = (int**)calloc(rows, sizeof(int*));
-    
+
     for(i = 0; i < rows; i++) {
         printf("Enter number of columns: ");
         scanf("%d", &columns);
