@@ -27,6 +27,17 @@ int** createUpperTriangularMatrix(int n) { // n indicates number of rows and num
 }
 
 
+// Function responsible for printing the upper triangular matrix
+void printUpperTriangularMatrix(int** a, int n) {
+
+}
+
+
+
+// Function responsible for printing the lower triangular matrix
+void printLowerTriangularMatrix(int** a, int n) {
+    
+}
 
 int main() {
     int** a;
