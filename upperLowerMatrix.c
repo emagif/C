@@ -29,19 +29,47 @@ int** createUpperTriangularMatrix(int n) { // n indicates number of rows and num
 
 // Function responsible for printing the upper triangular matrix
 void printUpperTriangularMatrix(int** a, int n) {
-
+    int i, j; 
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < n; j++) {
+            if(i>j) {
+                printf("0 ");
+            }
+            else {
+                printf("%d ", a[i][j]);
+            }
+        }
+        printf("\n");
+    }
 }
 
 
 
 // Function responsible for printing the lower triangular matrix
 void printLowerTriangularMatrix(int** a, int n) {
-    
+    int i, j; 
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < n; j++) {
+            if(i<j) {
+                printf("0 ");
+            }
+            else {
+                printf("%d ", a[i][j]);
+            }
+        }
+        printf("\n");
+    }
 }
 
 int main() {
     int** a;
-
+    int** b;
+    a = createLowerTriangularMatrix(3);
+    a[0][0] = 1; 
+    printLowerTriangularMatrix(a, 3);
+    printf("\n");
+    b = createUpperTriangularMatrix(3);
+    printUpperTriangularMatrix(b, 3);
 
     return 0;
 }
