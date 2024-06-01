@@ -4,18 +4,20 @@
 
 
 
-
-
-
-
-
-
-void allocate2DMatrixByReference(int** a, unsigned rows, unsigned columns) {
+void allocate2DMatrixByReference(int*** a, int rows, int columns) {
+    int** myMat;
     int i; 
-    a = (int**)malloc(sizeof(int*) * rows);
-    for(i = 0; i < rows; i++) {
-        a[i] = (int*)malloc(sizeof(int) * columns);
+    myMat = (int**)calloc(rows, sizeof(int*));
+    if(!myMat) {
+        return NULL;
     }
+    for(i = 0; i < rows; i++) {
+        myMat[i] =(int*)calloc(columns, sizeof(int));
+        if(!myMat[i]) {
+            return NULL;
+        }
+    }
+    *a = myMat;
 }
 
 
@@ -31,9 +33,14 @@ void print2DMatrix(int** a, unsigned rows, unsigned columns) {
 
 
 int main() {
+    int rows, columns;
+    printf("Enter rows: ");
+    scanf("%d", &rows);
+    printf("Enter columns: ");
+    scanf("%d", &columns);
 
     int** matrix; 
-    allocate2DMatrixByReference(matrix, 3, 3);
+    allocate2DMatrixByReference(&matrix, rows, columns);
     print2DMatrix(matrix, 3, 3);
 
 
