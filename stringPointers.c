@@ -3,8 +3,6 @@
 #include <malloc.h>
 
 
-
-
 int main() {
 
     char charsArray[] = {'h', 'e', 'l', 'l', 'o', '\0'};
