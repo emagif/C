@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
+#include <string.h>
 
 
 void strcopy(char* destinationStr, char* sourceStr);
+int strlenght(char* string);
+
 
 
 int main() {
@@ -17,6 +20,10 @@ int main() {
     
     strcopy(str2, str1);
     printf("%s", str2);
+    printf("\n");
+
+    int lenght = strlenght(str1);
+    printf("Length of the string is: %d", lenght);
     printf("\n");
 
     return 0;
@@ -39,4 +46,14 @@ void strcopy(char* destinationStr, char* sourceStr) {
     else {
         printf("The operation is invalid. Size of the copied string is to large. Try again with smaller string.");
     }
+}
+
+
+
+int strlenght(char* string) {
+    int count = 0;
+    while(string[count]!='\0') {
+        count++;
+    }
+    return count;
 }
