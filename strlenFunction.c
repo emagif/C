@@ -5,18 +5,12 @@
 
 
 int strlenFunction(char* string) {
-    int i, counter;
-    while(1) {
-        if(&string[i] != NULL) {
-            counter++;
-        }
-        if(string[i] == '\0') {
-            break;
-        }
-        i++;
+    int i;
+    while(string[i] != '\0') {
+       i++;
     }
 
-    return counter;
+    return i;
 }
 
 
@@ -26,6 +20,7 @@ int main() {
     char string[] = "Hello";
     length = strlenFunction(string);
     printf("%d", length);
+    printf("\n");
 
     return 0;
 }
