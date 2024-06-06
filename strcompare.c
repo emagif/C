@@ -4,7 +4,7 @@
 #include <malloc.h>
 
 
-int strCompare(char* str1, char* str2);
+int strCompare(char* str1, char* str2); // lengthwise
 
 int main() {
  
