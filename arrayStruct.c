@@ -33,17 +33,13 @@ int main() {
         printf("Enter point #%d 'y' coordinate: ", i+1);
         scanf("%d", &pointsArray[i].y);
     }
-    
+
     printf("\n\n");
     printf("Now printing them");
     printf("\n");
 
     for(i = 0; i < 5; i++) {
-        printf("Coordinate 'x' = %d of point #%d ", pointsArray[i].x, i+1);
-        printf("\n");
-
-        printf("Coordinate 'y' = %d of point #%d ", pointsArray[i].y, i+1);
-        printf("\n");
+        printf("Point #%d = (%d, %d)\n ", i+1, pointsArray[0].x, pointsArray[0].y);
     }
 
 
